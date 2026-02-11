@@ -19,7 +19,7 @@
                     },
                     fontFamily: {
                         'sans': ['Poppins', 'sans-serif'],
-                        'serif': ['Playfair Display', 'ser-serif']
+                        'serif': ['Playfair Display', 'ser-if']
                     }
                 }
             }
@@ -49,6 +49,35 @@
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
         }
+        .counter {
+            counter-reset: step;
+        }
+        .counter li {
+            counter-increment: step;
+            padding-left: 3rem;
+            position: relative;
+        }
+        .counter li::before {
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2rem;
+            height: 2rem;
+            background: #166534;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .gallery-item {
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body class="font-sans bg-background text-gray-800">
@@ -59,21 +88,17 @@
                 <div class="flex items-center">
                     <div class="flex-shrink-0 flex items-center">
                         <i class="fas fa-utensils text-primary text-2xl mr-2"></i>
-                        <span class="text-xl font-bold font-serif text-primary">Alaz Catering</span>
+                        <span class="text-xl font-bold font-serif text-primary"><strong>Alaz Catering</strong></span>
                     </div>
                     <div class="hidden md:ml-10 md:flex md:space-x-8">
                         <button onclick="scrollToSection('home')" class="text-primary border-b-2 border-primary px-1 pt-1 text-sm font-medium">Home</button>
                         <button onclick="scrollToSection('about')" class="text-gray-500 hover:text-primary px-1 pt-1 text-sm font-medium">About</button>
                         <button onclick="scrollToSection('services')" class="text-gray-500 hover:text-primary px-1 pt-1 text-sm font-medium">Services</button>
                         <button onclick="scrollToSection('menu')" class="text-gray-500 hover:text-primary px-1 pt-1 text-sm font-medium">Menu</button>
+                        <button onclick="scrollToSection('gallery')" class="text-gray-500 hover:text-primary px-1 pt-1 text-sm font-medium">Gallery</button>
                         <button onclick="scrollToSection('testimonials')" class="text-gray-500 hover:text-primary px-1 pt-1 text-sm font-medium">Testimonials</button>
                         <button onclick="scrollToSection('contact')" class="text-gray-500 hover:text-primary px-1 pt-1 text-sm font-medium">Contact</button>
                     </div>
-                </div>
-                <div class="flex items-center">
-                    <button class="bg-primary hover:bg-green-800 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-300">
-                        Book Now
-                    </button>
                 </div>
             </div>
         </div>
@@ -111,7 +136,7 @@
             </div>
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-1/2">
-                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='500' height='400' viewBox='0 0 500 400'><rect width='500' height='400' fill='%23f59e0b'/><circle cx='250' cy='200' r='100' fill='%23166534'/><rect x='200' y='150' width='100' height='100' fill='%23dc2626'/></svg>" alt="Catering Team" class="rounded-xl shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Catering Team" class="rounded-xl shadow-xl">
                 </div>
                 <div class="md:w-1/2">
                     <h3 class="text-2xl font-semibold text-gray-800 mb-4">Crafted with Passion Since 2010</h3>
@@ -145,6 +170,28 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Stats Section -->
+            <div class="mt-20">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                    <div class="p-6 bg-gray-50 rounded-xl">
+                        <div class="text-4xl font-bold text-primary mb-2">13+</div>
+                        <div class="text-gray-600">Years Experience</div>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-xl">
+                        <div class="text-4xl font-bold text-primary mb-2">5000+</div>
+                        <div class="text-gray-600">Happy Customers</div>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-xl">
+                        <div class="text-4xl font-bold text-primary mb-2">100+</div>
+                        <div class="text-gray-600">Events Per Year</div>
+                    </div>
+                    <div class="p-6 bg-gray-50 rounded-xl">
+                        <div class="text-4xl font-bold text-primary mb-2">50+</div>
+                        <div class="text-gray-600">Menu Items</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -165,7 +212,7 @@
                     <p class="text-gray-600 mb-4">
                         Elegant and memorable wedding meals that reflect the joyous occasion with traditional Pakistani delicacies.
                     </p>
-                    <button class="text-primary font-semibold hover:text-secondary">Learn More →</button>
+                    <button onclick="scrollToSection('contact')" class="text-primary font-semibold hover:text-secondary">Learn More →</button>
                 </div>
                 <div class="bg-white p-8 rounded-xl shadow-lg text-center transform hover:scale-105 transition duration-300">
                     <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6">
@@ -175,7 +222,7 @@
                     <p class="text-gray-600 mb-4">
                         Professional catering services for conferences, meetings, and corporate gatherings with diverse menu options.
                     </p>
-                    <button class="text-primary font-semibold hover:text-secondary">Learn More →</button>
+                    <button onclick="scrollToSection('contact')" class="text-primary font-semibold hover:text-secondary">Learn More →</button>
                 </div>
                 <div class="bg-white p-8 rounded-xl shadow-lg text-center transform hover:scale-105 transition duration-300">
                     <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
@@ -185,7 +232,67 @@
                     <p class="text-gray-600 mb-4">
                         Personalized catering for birthdays, anniversaries, and family celebrations with custom menus and presentation.
                     </p>
-                    <button class="text-primary font-semibold hover:text-secondary">Learn More →</button>
+                    <button onclick="scrollToSection('contact')" class="text-primary font-semibold hover:text-secondary">Learn More →</button>
+                </div>
+            </div>
+            
+            <!-- Process Section -->
+            <div class="mt-20">
+                <h3 class="text-2xl font-bold text-center text-primary mb-12">How We Work</h3>
+                <ol class="counter max-w-4xl mx-auto space-y-8">
+                    <li class="p-6 bg-white rounded-xl shadow-md">
+                        <h4 class="text-xl font-semibold mb-2">Consultation</h4>
+                        <p class="text-gray-600">We discuss your event details, preferences, and requirements to understand your specific needs.</p>
+                    </li>
+                    <li class="p-6 bg-white rounded-xl shadow-md">
+                        <h4 class="text-xl font-semibold mb-2">Menu Selection</h4>
+                        <p class="text-gray-600">Choose from our signature menu or customize a unique selection that matches your vision.</p>
+                    </li>
+                    <li class="p-6 bg-white rounded-xl shadow-md">
+                        <h4 class="text-xl font-semibold mb-2">Preparation</h4>
+                        <p class="text-gray-600">Our expert chefs prepare all dishes using the freshest ingredients and traditional techniques.</p>
+                    </li>
+                    <li class="p-6 bg-white rounded-xl shadow-md">
+                        <h4 class="text-xl font-semibold mb-2">Service</h4>
+                        <p class="text-gray-600">We deliver your order on time, ensuring flawless service and customer satisfaction.</p>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">Our Gallery</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Browse through our collection of delicious dishes and event setups</p>
+                <div class="w-24 h-1 bg-secondary mx-auto mt-4"></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="gallery-item overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Gallery Image 1" class="w-full h-64 object-cover">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Gallery Image 2" class="w-full h-64 object-cover">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Gallery Image 3" class="w-full h-64 object-cover">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1543322453-132f14d48f92?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Gallery Image 4" class="w-full h-64 object-cover">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Gallery Image 5" class="w-full h-64 object-cover">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Gallery Image 6" class="w-full h-64 object-cover">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Gallery Image 7" class="w-full h-64 object-cover">
+                </div>
+                <div class="gallery-item overflow-hidden rounded-xl shadow-md">
+                    <img src="https://images.unsplash.com/photo-1543322453-132f14d48f92?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Gallery Image 8" class="w-full h-64 object-cover">
                 </div>
             </div>
         </div>
@@ -206,6 +313,7 @@
                         <h3 class="text-xl font-semibold text-gray-800">Chicken Biryani</h3>
                         <span class="text-primary font-bold">₹350</span>
                     </div>
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Chicken Biryani" class="w-full h-48 object-cover rounded-lg mb-4">
                     <p class="text-gray-600 mb-4">
                         Fragrant basmati rice layered with tender chicken cooked in aromatic spices and herbs.
                     </p>
@@ -221,6 +329,7 @@
                         <h3 class="text-xl font-semibold text-gray-800">Lamb Karahi</h3>
                         <span class="text-primary font-bold">₹450</span>
                     </div>
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Lamb Karahi" class="w-full h-48 object-cover rounded-lg mb-4">
                     <p class="text-gray-600 mb-4">
                         Tender lamb cooked in a spicy tomato-based sauce with fresh herbs and aromatic spices.
                     </p>
@@ -236,6 +345,7 @@
                         <h3 class="text-xl font-semibold text-gray-800">Beef Seekh Kebab</h3>
                         <span class="text-primary font-bold">₹320</span>
                     </div>
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Beef Seekh Kebab" class="w-full h-48 object-cover rounded-lg mb-4">
                     <p class="text-gray-600 mb-4">
                         Juicy minced beef skewers seasoned with traditional Pakistani spices and grilled to perfection.
                     </p>
@@ -251,6 +361,7 @@
                         <h3 class="text-xl font-semibold text-gray-800">Chicken Tikka</h3>
                         <span class="text-primary font-bold">₹380</span>
                     </div>
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Chicken Tikka" class="w-full h-48 object-cover rounded-lg mb-4">
                     <p class="text-gray-600 mb-4">
                         Tender chicken marinated in yogurt and spices, then grilled to perfection and served with raita.
                     </p>
@@ -266,6 +377,7 @@
                         <h3 class="text-xl font-semibold text-gray-800">Vegetable Biryani</h3>
                         <span class="text-primary font-bold">₹280</span>
                     </div>
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Vegetable Biryani" class="w-full h-48 object-cover rounded-lg mb-4">
                     <p class="text-gray-600 mb-4">
                         A vegetarian delight with mixed vegetables and fragrant basmati rice, perfect for health-conscious diners.
                     </p>
@@ -281,6 +393,7 @@
                         <h3 class="text-xl font-semibold text-gray-800">Gulab Jamun</h3>
                         <span class="text-primary font-bold">₹180</span>
                     </div>
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Gulab Jamun" class="w-full h-48 object-cover rounded-lg mb-4">
                     <p class="text-gray-600 mb-4">
                         Soft milk balls soaked in sugar syrup, served warm with rabri, perfect dessert for any celebration.
                     </p>
@@ -290,11 +403,6 @@
                         </span>
                     </div>
                 </div>
-            </div>
-            <div class="text-center mt-12">
-                <button class="bg-primary hover:bg-green-800 text-white px-8 py-3 rounded-md text-lg font-semibold transition duration-300">
-                    Download Full Menu
-                </button>
             </div>
         </div>
     </section>
@@ -477,6 +585,14 @@
                                 </a>
                             </div>
                         </div>
+                        
+                        <!-- Map Placeholder -->
+                        <div class="mt-10">
+                            <h4 class="font-semibold text-gray-800 mb-4">Find Us</h4>
+                            <div class="bg-gray-200 rounded-xl aspect-video flex items-center justify-center">
+                                <i class="fas fa-map-marked-alt text-gray-500 text-3xl"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -490,7 +606,7 @@
                 <div>
                     <div class="flex items-center mb-4">
                         <i class="fas fa-utensils text-secondary text-2xl mr-2"></i>
-                        <span class="text-xl font-bold font-serif">Alaz Catering</span>
+                        <span class="text-xl font-bold font-serif"><strong>Alaz Catering</strong></span>
                     </div>
                     <p class="text-gray-400 mb-4">
                         Delivering authentic Pakistani cuisine with passion and dedication since 2010.
@@ -514,6 +630,7 @@
                         <li><button onclick="scrollToSection('about')" class="text-gray-400 hover:text-white transition duration-300">About Us</button></li>
                         <li><button onclick="scrollToSection('services')" class="text-gray-400 hover:text-white transition duration-300">Services</button></li>
                         <li><button onclick="scrollToSection('menu')" class="text-gray-400 hover:text-white transition duration-300">Menu</button></li>
+                        <li><button onclick="scrollToSection('gallery')" class="text-gray-400 hover:text-white transition duration-300">Gallery</button></li>
                         <li><button onclick="scrollToSection('contact')" class="text-gray-400 hover:text-white transition duration-300">Contact</button></li>
                     </ul>
                 </div>
