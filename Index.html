@@ -1,1 +1,575 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alaz Catering | Premium Pakistani Cuisine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#166534',
+                        secondary: '#f59e0b',
+                        accent: '#dc2626',
+                        background: '#f9fafb'
+                    },
+                    fontFamily: {
+                        'sans': ['Poppins', 'sans-serif'],
+                        'serif': ['Playfair Display', 'ser-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23166534"/><path d="M0 50 Q 25 30, 50 50 T 100 50" stroke="%23f59e0b" stroke-width="2" fill="none"/></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: scale(1.02);
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="font-sans bg-background text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-lg z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-utensils text-primary text-2xl mr-2"></i>
+                        <span class="text-xl font-bold font-serif text-primary">Alaz Catering</span>
+                    </div>
+                    <div class="hidden md:ml-10 md:flex md:space-x-8">
+                        <button onclick="scrollToSection('home')" class="text-primary border-b-2 border-primary px-1 pt-1 text-sm font-medium">Home</button>
+                        <button onclick="scrollToSection('about')" class="text-gray-500 hover:text-primary px-1 pt-1 text-sm font-medium">About</button>
+                        <button onclick="scrollToSection('services')" class="text-gray-500 hover:text-primary px-1 pt-1 text-sm font-medium">Services</button>
+                        <button onclick="scrollToSection('menu')" class="text-gray-500 hover:text-primary px-1 pt-1 text-sm font-medium">Menu</button>
+                        <button onclick="scrollToSection('testimonials')" class="text-gray-500 hover:text-primary px-1 pt-1 text-sm font-medium">Testimonials</button>
+                        <button onclick="scrollToSection('contact')" class="text-gray-500 hover:text-primary px-1 pt-1 text-sm font-medium">Contact</button>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <button class="bg-primary hover:bg-green-800 text-white px-4 py-2 rounded-md text-sm font-medium transition duration-300">
+                        Book Now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg h-screen flex items-center justify-center relative">
+        <div class="text-center px-4 max-w-4xl">
+            <h1 class="text-4xl md:text-6xl font-serif font-bold text-white mb-6 animate-fade-in-down">
+                Premium Pakistani Catering Services
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-200 mb-8 animate-fade-in-up">
+                Authentic flavors, exceptional service, unforgettable experiences
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button onclick="scrollToSection('menu')" class="bg-secondary hover:bg-yellow-600 text-white px-8 py-3 rounded-md text-lg font-semibold transition duration-300 transform hover:scale-105">
+                    View Our Menu
+                </button>
+                <button onclick="scrollToSection('contact')" class="bg-transparent hover:bg-primary text-white border-2 border-white px-8 py-3 rounded-md text-lg font-semibold transition duration-300">
+                    Contact Us
+                </button>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-white text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">About Alaz Catering</h2>
+                <div class="w-24 h-1 bg-secondary mx-auto"></div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='500' height='400' viewBox='0 0 500 400'><rect width='500' height='400' fill='%23f59e0b'/><circle cx='250' cy='200' r='100' fill='%23166534'/><rect x='200' y='150' width='100' height='100' fill='%23dc2626'/></svg>" alt="Catering Team" class="rounded-xl shadow-xl">
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Crafted with Passion Since 2010</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Alaz Catering brings you the authentic taste of Pakistan with our rich culinary heritage. 
+                        We specialize in creating memorable dining experiences for weddings, corporate events, 
+                        and private gatherings throughout Pakistan.
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Our team of expert chefs uses traditional recipes passed down through generations, 
+                        combined with modern cooking techniques to deliver exceptional flavors that will 
+                        delight your guests.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mt-8">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-secondary text-xl mr-2"></i>
+                            <span class="font-medium">Fresh Ingredients Daily</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-secondary text-xl mr-2"></i>
+                            <span class="font-medium">Licensed & Inspected</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-secondary text-xl mr-2"></i>
+                            <span class="font-medium">Experienced Chefs</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-secondary text-xl mr-2"></i>
+                            <span class="font-medium">Customizable Menus</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">Our Services</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">We provide comprehensive catering solutions tailored to your special occasion</p>
+                <div class="w-24 h-1 bg-secondary mx-auto mt-4"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center transform hover:scale-105 transition duration-300">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-heart text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Wedding Catering</h3>
+                    <p class="text-gray-600 mb-4">
+                        Elegant and memorable wedding meals that reflect the joyous occasion with traditional Pakistani delicacies.
+                    </p>
+                    <button class="text-primary font-semibold hover:text-secondary">Learn More →</button>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center transform hover:scale-105 transition duration-300">
+                    <div class="w-16 h-16 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-building text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Corporate Events</h3>
+                    <p class="text-gray-600 mb-4">
+                        Professional catering services for conferences, meetings, and corporate gatherings with diverse menu options.
+                    </p>
+                    <button class="text-primary font-semibold hover:text-secondary">Learn More →</button>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center transform hover:scale-105 transition duration-300">
+                    <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-home text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Private Functions</h3>
+                    <p class="text-gray-600 mb-4">
+                        Personalized catering for birthdays, anniversaries, and family celebrations with custom menus and presentation.
+                    </p>
+                    <button class="text-primary font-semibold hover:text-secondary">Learn More →</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">Our Signature Menu</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Authentic Pakistani dishes prepared with the finest ingredients</p>
+                <div class="w-24 h-1 bg-secondary mx-auto mt-4"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Menu Item 1 -->
+                <div class="menu-item bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-semibold text-gray-800">Chicken Biryani</h3>
+                        <span class="text-primary font-bold">₹350</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Fragrant basmati rice layered with tender chicken cooked in aromatic spices and herbs.
+                    </p>
+                    <div class="flex items-center">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                            <i class="fas fa-star text-yellow-400 mr-1"></i> Popular
+                        </span>
+                    </div>
+                </div>
+                <!-- Menu Item 2 -->
+                <div class="menu-item bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-semibold text-gray-800">Lamb Karahi</h3>
+                        <span class="text-primary font-bold">₹450</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Tender lamb cooked in a spicy tomato-based sauce with fresh herbs and aromatic spices.
+                    </p>
+                    <div class="flex items-center">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800">
+                            <i class="fas fa-fire text-orange-400 mr-1"></i> Spicy
+                        </span>
+                    </div>
+                </div>
+                <!-- Menu Item 3 -->
+                <div class="menu-item bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-semibold text-gray-800">Beef Seekh Kebab</h3>
+                        <span class="text-primary font-bold">₹320</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Juicy minced beef skewers seasoned with traditional Pakistani spices and grilled to perfection.
+                    </p>
+                    <div class="flex items-center">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                            <i class="fas fa-leaf text-green-400 mr-1"></i> Vegetarian Option
+                        </span>
+                    </div>
+                </div>
+                <!-- Menu Item 4 -->
+                <div class="menu-item bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-semibold text-gray-800">Chicken Tikka</h3>
+                        <span class="text-primary font-bold">₹380</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Tender chicken marinated in yogurt and spices, then grilled to perfection and served with raita.
+                    </p>
+                    <div class="flex items-center">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-purple-100 text-purple-800">
+                            <i class="fas fa-star text-yellow-400 mr-1"></i> Chef's Choice
+                        </span>
+                    </div>
+                </div>
+                <!-- Menu Item 5 -->
+                <div class="menu-item bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-semibold text-gray-800">Vegetable Biryani</h3>
+                        <span class="text-primary font-bold">₹280</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        A vegetarian delight with mixed vegetables and fragrant basmati rice, perfect for health-conscious diners.
+                    </p>
+                    <div class="flex items-center">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                            <i class="fas fa-leaf text-green-400 mr-1"></i> Vegan Friendly
+                        </span>
+                    </div>
+                </div>
+                <!-- Menu Item 6 -->
+                <div class="menu-item bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-semibold text-gray-800">Gulab Jamun</h3>
+                        <span class="text-primary font-bold">₹180</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Soft milk balls soaked in sugar syrup, served warm with rabri, perfect dessert for any celebration.
+                    </p>
+                    <div class="flex items-center">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-pink-100 text-pink-800">
+                            <i class="fas fa-heart text-pink-400 mr-1"></i> Sweet Treat
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <button class="bg-primary hover:bg-green-800 text-white px-8 py-3 rounded-md text-lg font-semibold transition duration-300">
+                    Download Full Menu
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">What Our Clients Say</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Don't just take our word for it - hear from our satisfied customers</p>
+                <div class="w-24 h-1 bg-secondary mx-auto mt-4"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card bg-white p-8 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            S
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Sarah Khan</h4>
+                            <p class="text-gray-600 text-sm">Wedding Catering</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">
+                        "The food was absolutely amazing! Our wedding guests couldn't stop praising the delicious Pakistani dishes. 
+                        The service was impeccable and everything was perfectly organized."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="testimonial-card bg-white p-8 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            M
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Muhammad Ahmed</h4>
+                            <p class="text-gray-600 text-sm">Corporate Event</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">
+                        "Perfect catering for our company's annual conference. The menu was diverse and the presentation was outstanding. 
+                        Will definitely book again for future events!"
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+                <div class="testimonial-card bg-white p-8 rounded-xl shadow-lg">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold mr-4">
+                            A
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800">Ayesha Malik</h4>
+                            <p class="text-gray-600 text-sm">Birthday Party</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic mb-6">
+                        "Our daughter's birthday party was a huge success thanks to Alaz's incredible catering. 
+                        The children loved the dessert table and the adults were impressed with the quality of food."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">Contact Us</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Get in touch for bookings and inquiries</p>
+                <div class="w-24 h-1 bg-secondary mx-auto mt-4"></div>
+            </div>
+            <div class="flex flex-col lg:flex-row gap-12">
+                <div class="lg:w-1/2">
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-gray-700 mb-2">Full Name</label>
+                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                            <div>
+                                <label class="block text-gray-700 mb-2">Phone Number</label>
+                                <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Email Address</label>
+                            <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Event Type</label>
+                            <select class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary">
+                                <option>Wedding</option>
+                                <option>Corporate Event</option>
+                                <option>Birthday Party</option>
+                                <option>Private Function</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Message</label>
+                            <textarea rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary hover:bg-green-800 text-white py-3 px-6 rounded-md font-semibold transition duration-300">
+                            Send Inquiry
+                        </button>
+                    </form>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="bg-gray-50 p-8 rounded-xl h-full">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Location</h4>
+                                    <p class="text-gray-600">123 Food Street, Karachi, Pakistan</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-white mr-4">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Phone</h4>
+                                    <p class="text-gray-600">+92 300 1234567</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white mr-4">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Email</h4>
+                                    <p class="text-gray-600">info@alazcatering.pk</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Working Hours</h4>
+                                    <p class="text-gray-600">Monday - Sunday: 9:00 AM - 10:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-10">
+                            <h4 class="font-semibold text-gray-800 mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white hover:bg-green-800 transition duration-300">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-secondary rounded-full flex items-center justify-center text-white hover:bg-yellow-600 transition duration-300">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-accent rounded-full flex items-center justify-center text-white hover:bg-red-800 transition duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-utensils text-secondary text-2xl mr-2"></i>
+                        <span class="text-xl font-bold font-serif">Alaz Catering</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Delivering authentic Pakistani cuisine with passion and dedication since 2010.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><button onclick="scrollToSection('home')" class="text-gray-400 hover:text-white transition duration-300">Home</button></li>
+                        <li><button onclick="scrollToSection('about')" class="text-gray-400 hover:text-white transition duration-300">About Us</button></li>
+                        <li><button onclick="scrollToSection('services')" class="text-gray-400 hover:text-white transition duration-300">Services</button></li>
+                        <li><button onclick="scrollToSection('menu')" class="text-gray-400 hover:text-white transition duration-300">Menu</button></li>
+                        <li><button onclick="scrollToSection('contact')" class="text-gray-400 hover:text-white transition duration-300">Contact</button></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Wedding Catering</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Corporate Events</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Private Functions</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Catering Packages</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Delivery Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Subscribe to get special offers and updates</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 w-full text-gray-800 rounded-l-md focus:outline-none">
+                        <button class="bg-primary hover:bg-green-800 px-4 py-2 rounded-r-md transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Alaz Catering. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your inquiry! We will contact you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
